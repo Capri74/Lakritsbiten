@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lakritsbiten 🍫</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      background-color: transparent;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/phEGmLx.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 500px;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    img.profile {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4),
+                  0 0 20px rgba(255, 105, 180, 0.6),
+                  0 8px 20px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-size: 2.2em;
+      color: #fff;
+      margin-bottom: 5px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.6), 0 0 12px rgba(255, 105, 180, 0.8);
+      transform: translateX(20px);
+    }
+
+    #city {
+      font-size: 1.3em;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.4);
+      transform: translateX(-10px);
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: -160px;
+      position: relative;
+      z-index: 3; /* högre än ansiktsbilden */
+    }
+
+    .buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 24px;
+      background: linear-gradient(135deg, #ff4fa2, #ff85d0);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.3em;
+      font-weight: bold;
+      box-shadow: 0 0 12px rgba(255, 105, 180, 0.6),
+                  0 8px 24px rgba(0, 0, 0, 0.3),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      backdrop-filter: blur(3px);
+      z-index: 3;
+    }
+
+    .buttons a:hover {
+      background: linear-gradient(135deg, #ff6ebc, #ff99d0);
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px rgba(255, 105, 180, 0.8),
+                  0 10px 28px rgba(0, 0, 0, 0.4),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    .buttons a img {
+      position: absolute;
+      left: 20px;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+    }
+
+    .buttons a span {
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .face-image {
+      width: 100%;
+      max-width: 480px;
+      margin-top: 20px;
+      height: auto;
+      z-index: 1;
+      position: relative;
+      pointer-events: none; /* gör att den inte blockerar klick */
+    }
+
+    small {
+      color: #fff;
+      margin-top: 30px;
+      font-size: 0.9em;
+      text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .face-image {
+        max-width: 360px;
+        margin-top: 20px;
+      }
+
+      .buttons a img {
+        left: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img class="profile" src="https://i.imgur.com/octccwT.jpeg" alt="Naomy Lamine" />
+    <div class="name">Lakritsbiten 🍫</div>
+    <div id="city">📍 Din stad</div>
+
+    <div class="buttons">
+      <a href="https://instagram.com/naomylamine" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" />
+        <span>Instagram</span>
+      </a>
+      <a href="https://fansly.com/naomylamine" target="_blank">
+        <img src="https://cdn.worldvectorlogo.com/logos/fansly.svg" alt="Fansly" />
+        <span>Fansly</span>
+      </a>
+    </div>
+
+    <img class="face-image" src="https://i.imgur.com/uY8eu3b.png" alt="Ansikte under knapparna" />
+    <small>Denna sida innehåller vuxet material. 18+</small>
+  </div>
+
+  <script>
+    fetch('https://ipinfo.io/json?token=596cafccc54834')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("city").innerText = `📍 ${data.city}`;
+      });
+  </script>
+</body>
+</html>
