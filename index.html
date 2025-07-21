@@ -2,175 +2,235 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lakritsbiten 🍫</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Naomy Lamine</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      min-height: 100vh;
-      background-color: transparent;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      z-index: 0;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.imgur.com/phEGmLx.png') no-repeat center center;
+      margin: 0; padding: 0;
+      font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+      background: url('https://i.imgur.com/phEGmLx.png') no-repeat center center fixed;
       background-size: cover;
-      z-index: -1;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 50px;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .content {
-      width: 100%;
-      max-width: 500px;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .container {
+      background: rgba(0,0,0,0.5);
+      border-radius: 24px;
+      max-width: 480px;
+      width: 90vw;
+      padding: 40px 30px 60px;
+      box-shadow:
+        0 12px 40px rgba(255, 20, 147, 0.3),
+        inset 0 0 30px rgba(255, 20, 147, 0.1);
       text-align: center;
-      position: relative;
-      z-index: 2;
+      transition: background 0.3s ease;
     }
 
     img.profile {
       width: 180px;
       height: 180px;
-      object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.4),
-                  0 0 20px rgba(255, 105, 180, 0.6),
-                  0 8px 20px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
+      object-fit: cover;
+      margin-bottom: 25px;
+      box-shadow:
+        0 0 0 7px rgba(255 255 255 / 0.5),
+        0 0 25px rgba(255, 105, 180, 0.75),
+        0 12px 28px rgba(0,0,0,0.25);
+      transition: box-shadow 0.3s ease;
+    }
+    img.profile:hover {
+      box-shadow:
+        0 0 0 7px rgba(255 255 255 / 0.8),
+        0 0 40px rgba(255, 105, 180, 0.95),
+        0 15px 35px rgba(0,0,0,0.3);
+      cursor: pointer;
     }
 
     .name {
-      font-size: 2.2em;
-      color: #fff;
-      margin-bottom: 5px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.6), 0 0 12px rgba(255, 105, 180, 0.8);
-      transform: translateX(20px);
+      font-size: 2.4em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-shadow:
+        0 0 10px rgba(0,0,0,0.7),
+        0 0 15px rgba(255, 105, 180, 0.9);
+      letter-spacing: 1.2px;
     }
 
     #city {
-      font-size: 1.3em;
-      color: #fff;
-      margin-bottom: 30px;
-      text-shadow: 0 0 6px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.4);
-      transform: translateX(-10px);
+      font-size: 1.4em;
+      margin-bottom: 45px;
+      text-shadow:
+        0 0 6px rgba(0,0,0,0.6),
+        0 0 12px rgba(255,255,255,0.5);
+      font-weight: 400;
+      letter-spacing: 0.5px;
     }
 
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      width: 100%;
+      gap: 22px;
       max-width: 320px;
-      margin-bottom: -160px;
-      position: relative;
-      z-index: 3; /* högre än ansiktsbilden */
+      margin: 0 auto 25px;
     }
 
     .buttons a {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px 24px;
-      background: linear-gradient(135deg, #ff4fa2, #ff85d0);
-      color: white;
-      text-decoration: none;
+      background: linear-gradient(135deg, #ff3a8e, #ff7cc9);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.35em;
+      padding: 18px 30px;
       border-radius: 50px;
-      font-size: 1.3em;
-      font-weight: bold;
-      box-shadow: 0 0 12px rgba(255, 105, 180, 0.6),
-                  0 8px 24px rgba(0, 0, 0, 0.3),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.4);
-      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow:
+        0 0 14px rgba(255, 50, 140, 0.7),
+        0 10px 28px rgba(0, 0, 0, 0.25),
+        inset 0 1px 3px rgba(255 255 255 / 0.45);
       position: relative;
-      backdrop-filter: blur(3px);
-      z-index: 3;
+      transition: all 0.35s cubic-bezier(.4,0,.2,1);
+      backdrop-filter: blur(5px);
+      overflow: hidden;
     }
-
+    .buttons a::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -25%;
+      width: 150%;
+      height: 200%;
+      background: rgba(255,255,255,0.15);
+      transform: rotate(25deg);
+      transition: all 0.5s ease;
+      filter: blur(20px);
+      pointer-events: none;
+    }
+    .buttons a:hover::before {
+      left: 120%;
+      transition: all 0.5s ease;
+    }
     .buttons a:hover {
-      background: linear-gradient(135deg, #ff6ebc, #ff99d0);
-      transform: translateY(-2px);
-      box-shadow: 0 0 16px rgba(255, 105, 180, 0.8),
-                  0 10px 28px rgba(0, 0, 0, 0.4),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.5);
+      background: linear-gradient(135deg, #ff5aad, #ff92ce);
+      transform: translateY(-3px);
+      box-shadow:
+        0 0 20px rgba(255, 70, 170, 0.9),
+        0 12px 35px rgba(0, 0, 0, 0.35),
+        inset 0 1px 3px rgba(255 255 255 / 0.6);
+      cursor: pointer;
     }
 
     .buttons a img {
       position: absolute;
-      left: 20px;
+      left: 22px;
       width: 32px;
       height: 32px;
       pointer-events: none;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.4));
     }
 
     .buttons a span {
       margin: 0 auto;
-      text-align: center;
-      width: 100%;
       pointer-events: none;
+      width: 100%;
+      text-align: center;
     }
 
     .face-image {
       width: 100%;
       max-width: 480px;
-      margin-top: 20px;
+      margin-top: 25px;
+      border-radius: 20px;
+      box-shadow:
+        0 15px 40px rgba(255, 0, 100, 0.45),
+        0 0 20px rgba(255, 105, 180, 0.7);
+      user-select: none;
+      pointer-events: none;
       height: auto;
-      z-index: 1;
-      position: relative;
-      pointer-events: none; /* gör att den inte blockerar klick */
+      transition: box-shadow 0.3s ease;
+    }
+    .face-image:hover {
+      box-shadow:
+        0 18px 48px rgba(255, 0, 100, 0.65),
+        0 0 30px rgba(255, 105, 180, 0.85);
     }
 
     small {
-      color: #fff;
-      margin-top: 30px;
+      display: block;
+      margin-top: 32px;
       font-size: 0.9em;
-      text-shadow: 0 0 4px rgba(0,0,0,0.5);
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+      user-select: none;
+      opacity: 0.8;
+      font-weight: 400;
     }
 
-    @media (max-width: 768px) {
-      .face-image {
-        max-width: 360px;
-        margin-top: 20px;
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px 45px;
       }
-
+      img.profile {
+        width: 140px;
+        height: 140px;
+      }
+      .name {
+        font-size: 1.9em;
+      }
+      #city {
+        font-size: 1.15em;
+        margin-bottom: 30px;
+      }
+      .buttons a {
+        font-size: 1.1em;
+        padding: 14px 24px;
+      }
       .buttons a img {
-        left: 12px;
+        left: 16px;
+        width: 28px;
+        height: 28px;
+      }
+      .face-image {
+        max-width: 90vw;
+        border-radius: 16px;
+      }
+      small {
+        margin-top: 20px;
+        font-size: 0.85em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <img class="profile" src="https://i.imgur.com/octccwT.jpeg" alt="Naomy Lamine" />
-    <div class="name">Lakritsbiten 🍫</div>
-    <div id="city">📍 Din stad</div>
+  <div class="container" role="main" aria-label="Profilinformation">
+    <img class="profile" src="https://i.imgur.com/octccwT.jpeg" alt="Profilbild Naomy Lamine" />
+    <div class="name">Naomy Lamine</div>
+    <div id="city" aria-live="polite" aria-atomic="true">📍 Din stad</div>
 
-    <div class="buttons">
-      <a href="https://instagram.com/naomylamine" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram" />
+    <nav class="buttons" aria-label="Sociala länkar">
+      <a href="https://instagram.com/naomylamine" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="" aria-hidden="true" />
         <span>Instagram</span>
       </a>
-      <a href="https://fansly.com/naomylamine" target="_blank">
-        <img src="https://cdn.worldvectorlogo.com/logos/fansly.svg" alt="Fansly" />
+
+      <a href="https://fansly.com/naomylamine" target="_blank" rel="noopener noreferrer" aria-label="Fansly">
+        <img src="https://cdn.worldvectorlogo.com/logos/fansly.svg" alt="" aria-hidden="true" />
         <span>Fansly</span>
       </a>
-    </div>
+    </nav>
 
-    <img class="face-image" src="https://i.imgur.com/uY8eu3b.png" alt="Ansikte under knapparna" />
+    <img class="face-image" src="https://i.imgur.com/uY8eu3b.png" alt="Naomy Lamine ansikte" />
+
     <small>Denna sida innehåller vuxet material. 18+</small>
   </div>
 
@@ -178,7 +238,12 @@
     fetch('https://ipinfo.io/json?token=596cafccc54834')
       .then(response => response.json())
       .then(data => {
-        document.getElementById("city").innerText = `📍 ${data.city}`;
+        if(data.city) {
+          document.getElementById('city').innerText = `📍 ${data.city}`;
+        }
+      })
+      .catch(() => {
+        document.getElementById('city').innerText = '📍 Din stad';
       });
   </script>
 </body>
